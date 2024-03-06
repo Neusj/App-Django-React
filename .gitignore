@@ -1,2 +1,5 @@
 venv/
 crud_api/settings.py
+*.pyc
+*.sqlite3
+*/__pycache__/
