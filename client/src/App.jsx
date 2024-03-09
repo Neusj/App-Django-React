@@ -10,7 +10,7 @@ function App() {
                 <Route path='/' element={<Navigate to={"/tasks"}/>}/>
                 <Route path='/tasks' element={<TaskPage/>}/>
                 <Route path='/tasks_create' element={<TaskFormPage/>}/>
-                <Route path='tasks/:id' element={<TaskFormPage/>}/>
+                <Route path='/tasks/:id' element={<TaskFormPage/>}/>
             </Routes>
         </BrowserRouter>
     )
