@@ -1,6 +1,6 @@
 import {useForm} from 'react-hook-form';
-import { createTask } from '../api/Task.api';
-import { useNavigate } from 'react-router-dom';
+import { createTask, deleteTask } from '../api/Task.api';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 export function TaskFormPage() {
@@ -11,6 +11,7 @@ export function TaskFormPage() {
         await createTask(data);
         navigate('/tasks');
     })
+    const params = useParams();
 
     return (
         <div>
@@ -26,6 +27,16 @@ export function TaskFormPage() {
 
                 <button>Guardar</button>
             </form>
+
+            {params.id && <button 
+                onClick={async () =>{
+                    const validate_delete = window.confirm('¿Está seguro de eliminar la tarea?')
+                    if (validate_delete) {
+                        await deleteTask(params.id);
+                        navigate('/tasks');
+                    }
+                }}
+            >Borrar</button> }
         </div>
     )
 }
