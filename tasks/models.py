@@ -5,7 +5,7 @@ from django.db import models
 
 class Task(models.Model):
     title = models.CharField(max_length=200)
-    decription = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     done = models.BooleanField(default=True)
 
 
